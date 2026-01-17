@@ -1,0 +1,164 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "name": "Breathing Bubble",
+      "type": "breathing",
+      "duration": "2-5 minutes",
+      "difficulty": "Beginner",
+      "description": "Control a bubble's size with your breath rhythm to achieve calm breathing cycles.",
+      "mechanics": "Click and hold to inhale (bubble grows), release to exhale (bubble shrinks). Complete 5 calm breath cycles.",
+      "benefits": [
+        "Regulates breathing patterns",
+        "Reduces anxiety and stress",
+        "Improves focus and concentration",
+        "Teaches breath awareness"
+      ],
+      "icon": "bi-droplet"
+    },
+    {
+      "id": 2,
+      "name": "Focus Flow",
+      "type": "focus",
+      "duration": "3 minutes",
+      "difficulty": "Intermediate",
+      "description": "Guide particles to their targets while avoiding distractions.",
+      "mechanics": "Click on moving targets to score points. Targets move faster as you progress.",
+      "benefits": [
+        "Improves attention span",
+        "Enhances reaction time",
+        "Trains selective attention",
+        "Reduces distractibility"
+      ],
+      "icon": "bi-bullseye"
+    },
+    {
+      "id": 3,
+      "name": "Calm Waters",
+      "type": "mindfulness",
+      "duration": "5 minutes",
+      "difficulty": "Beginner",
+      "description": "Create gentle waves and watch particles flow peacefully.",
+      "mechanics": "Drag to create waves in the water. Watch particles flow and achieve calm state.",
+      "benefits": [
+        "Promotes mindfulness",
+        "Reduces racing thoughts",
+        "Teaches gentle control",
+        "Improves present-moment awareness"
+      ],
+      "icon": "bi-water"
+    },
+    {
+      "id": 4,
+      "name": "Pattern Match",
+      "type": "focus",
+      "duration": "4 minutes",
+      "difficulty": "Intermediate",
+      "description": "Match patterns quickly to improve cognitive processing speed.",
+      "mechanics": "Memorize the pattern, then recreate it as quickly as possible.",
+      "benefits": [
+        "Improves memory retention",
+        "Enhances processing speed",
+        "Trains visual-spatial skills",
+        "Reduces mental fatigue"
+      ],
+      "icon": "bi-grid-3x3"
+    },
+    {
+      "id": 5,
+      "name": "Heartbeat Harmony",
+      "type": "breathing",
+      "duration": "3 minutes",
+      "difficulty": "Advanced",
+      "description": "Sync your breathing with a slowing heartbeat visualization.",
+      "mechanics": "Breathe in sync with the visual heartbeat to slow it down.",
+      "benefits": [
+        "Regulates heart rate variability",
+        "Teaches biofeedback skills",
+        "Deepens relaxation response",
+        "Improves body awareness"
+      ],
+      "icon": "bi-heart-pulse"
+    },
+    {
+      "id": 6,
+      "name": "Thought Clouds",
+      "type": "mindfulness",
+      "duration": "2 minutes",
+      "difficulty": "Beginner",
+      "description": "Watch worries float away as clouds.",
+      "mechanics": "Type your worry and watch it transform into a cloud that drifts away.",
+      "benefits": [
+        "Externalizes worries",
+        "Provides symbolic release",
+        "Reduces rumination",
+        "Teaches letting go"
+      ],
+      "icon": "bi-cloud"
+    },
+    {
+      "id": 7,
+      "name": "Color Harmony",
+      "type": "creative",
+      "duration": "5 minutes",
+      "difficulty": "Beginner",
+      "description": "Create soothing color combinations and patterns.",
+      "mechanics": "Select colors and create harmonious patterns. No right or wrong, just create.",
+      "benefits": [
+        "Encourages creativity",
+        "Reduces stress through art",
+        "Improves color perception",
+        "Provides non-verbal expression"
+      ],
+      "icon": "bi-palette"
+    },
+    {
+      "id": 8,
+      "name": "Sound Match",
+      "type": "focus",
+      "duration": "3 minutes",
+      "difficulty": "Intermediate",
+      "description": "Match calming nature sounds to corresponding images.",
+      "mechanics": "Listen to sound, select matching visual from options.",
+      "benefits": [
+        "Improves auditory focus",
+        "Connects senses",
+        "Reduces sensory overload",
+        "Enhances memory recall"
+      ],
+      "icon": "bi-music-note-beamed"
+    },
+    {
+      "id": 9,
+      "name": "Progressive Relaxation",
+      "type": "breathing",
+      "duration": "4 minutes",
+      "difficulty": "Beginner",
+      "description": "Interactive muscle tension/release visualization.",
+      "mechanics": "Follow prompts to tense and release muscle groups systematically.",
+      "benefits": [
+        "Reduces physical tension",
+        "Teaches body scanning",
+        "Improves sleep quality",
+        "Reduces muscle pain"
+      ],
+      "icon": "bi-activity"
+    },
+    {
+      "id": 10,
+      "name": "Gratitude Garden",
+      "type": "creative",
+      "duration": "3 minutes",
+      "difficulty": "Beginner",
+      "description": "Plant flowers by typing things you're grateful for.",
+      "mechanics": "Type gratitude, watch garden grow with each entry.",
+      "benefits": [
+        "Boosts positive mood",
+        "Shifts perspective",
+        "Encourages gratitude practice",
+        "Visualizes positive thoughts"
+      ],
+      "icon": "bi-flower1"
+    }
+  ]
+}

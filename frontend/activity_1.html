@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindful Journaling Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #a8edea, #fed6e3);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+      transition: background 0.5s;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .description {
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    #timer {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #e74c3c;
+    }
+
+    #prompt {
+      background: rgba(255,255,255,0.7);
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    textarea {
+      width: 100%;
+      max-width: 600px;
+      height: 250px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      margin-bottom: 10px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #3498db;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    .reflection {
+      max-width: 600px;
+      text-align: left;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      white-space: pre-wrap;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mindful Journaling Game</h1>
+  <p class="description">
+    Write your thoughts and feelings to gain clarity. Complete the challenges and earn points!
+  </p>
+
+  <div id="timer">10:00</div>
+  <div id="prompt">Prompt: Describe 3 things you feel right now.</div>
+
+  <textarea id="journal" placeholder="Start writing here..."></textarea>
+
+  <div class="controls">
+    <button id="startBtn">Start Game</button>
+    <button id="reflectBtn">Reflect</button>
+    <button id="clearBtn">Clear</button>
+  </div>
+
+  <div id="reflection" class="reflection"></div>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const reflectBtn = document.getElementById('reflectBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const timerEl = document.getElementById('timer');
+    const journal = document.getElementById('journal');
+    const reflectionEl = document.getElementById('reflection');
+    const promptEl = document.getElementById('prompt');
+
+    const prompts = [
+      "Describe 3 things you feel right now.",
+      "Write 2 things that made you happy today.",
+      "Describe 1 thing you are grateful for.",
+      "Write 2 challenges you faced recently and how you felt.",
+      "List 3 positive things about yourself."
+    ];
+
+    let timer;
+    let timeLeft = 10 * 60; // 10 minutes
+
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+      const s = (seconds % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function nextPrompt() {
+      const randomIndex = Math.floor(Math.random() * prompts.length);
+      promptEl.textContent = "Prompt: " + prompts[randomIndex];
+    }
+
+    startBtn.addEventListener('click', () => {
+      clearInterval(timer);
+      timeLeft = 10 * 60;
+      timerEl.textContent = formatTime(timeLeft);
+      nextPrompt();
+      reflectionEl.style.display = 'none';
+      journal.value = '';
+
+      timer = setInterval(() => {
+        timeLeft--;
+        timerEl.textContent = formatTime(timeLeft);
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          alert("Time's up! Click 'Reflect' to see your thoughts.");
+        }
+      }, 1000);
+    });
+
+    reflectBtn.addEventListener('click', () => {
+      const text = journal.value.trim();
+      if (text) {
+        reflectionEl.style.display = 'block';
+        reflectionEl.textContent = "Your Reflection:\n\n" + text + "\n\nGreat job completing this journaling game!";
+      } else {
+        alert("Write something first!");
+      }
+    });
+
+    clearBtn.addEventListener('click', () => {
+      journal.value = '';
+      reflectionEl.style.display = 'none';
+      clearInterval(timer);
+      timerEl.textContent = "10:00";
+      promptEl.textContent = "Prompt: Describe 3 things you feel right now.";
+    });
+
+  </script>
+</body>
+</html>

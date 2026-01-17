@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4-7-8 Breathing | MindCare</title>
+
+<style>
+:root {
+  --primary: #6366f1;
+  --secondary: #10b981;
+  --light: #f8fafc;
+  --gray: #94a3b8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: var(--light);
+}
+
+.container {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 2.5rem 3rem;
+  text-align: center;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--gray);
+  margin-bottom: 2rem;
+}
+
+.breath-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--primary);
+  margin: 2rem auto;
+  box-shadow: 0 0 40px var(--primary);
+  transition: transform 1s linear, box-shadow 1s linear;
+}
+
+.instruction {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+.timer {
+  font-size: 1.1rem;
+  color: var(--gray);
+  margin-top: 0.5rem;
+}
+
+.cycle {
+  margin-top: 1.5rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+button {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, var(--primary), #4f46e5);
+  border: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>4-7-8 Breathing</h1>
+  <p class="subtitle">A calming breathing exercise to reduce anxiety</p>
+
+  <div class="breath-circle" id="circle"></div>
+
+  <div class="instruction" id="instruction">Press Start</div>
+  <div class="timer" id="timer"></div>
+
+  <div class="cycle" id="cycle">Cycle: 0 / 4</div>
+
+  <button id="startBtn">Start Exercise</button>
+</div>
+
+<script>
+const circle = document.getElementById("circle");
+const instruction = document.getElementById("instruction");
+const timerText = document.getElementById("timer");
+const cycleText = document.getElementById("cycle");
+const startBtn = document.getElementById("startBtn");
+
+let cycle = 0;
+let countdown;
+let phaseTimeout;
+
+function startExercise() {
+  startBtn.disabled = true;
+  cycle = 0;
+  nextCycle();
+}
+
+function nextCycle() {
+  if (cycle >= 4) {
+    finishExercise();
+    return;
+  }
+
+  cycle++;
+  cycleText.textContent = `Cycle: ${cycle} / 4`;
+
+  inhale();
+}
+
+function inhale() {
+  instruction.textContent = "Inhale through your nose";
+  animateCircle(1.4);
+  startCountdown(4, () => hold());
+}
+
+function hold() {
+  instruction.textContent = "Hold your breath";
+  animateCircle(1.4);
+  startCountdown(7, () => exhale());
+}
+
+function exhale() {
+  instruction.textContent = "Exhale through your mouth";
+  animateCircle(0.7);
+  startCountdown(8, () => nextCycle());
+}
+
+function animateCircle(scale) {
+  circle.style.transform = `scale(${scale})`;
+  circle.style.boxShadow = `0 0 ${scale * 40}px var(--primary)`;
+}
+
+function startCountdown(seconds, callback) {
+  let time = seconds;
+  timerText.textContent = `${time}s`;
+
+  clearInterval(countdown);
+  countdown = setInterval(() => {
+    time--;
+    timerText.textContent = `${time}s`;
+    if (time <= 0) {
+      clearInterval(countdown);
+      callback();
+    }
+  }, 1000);
+}
+
+function finishExercise() {
+  instruction.textContent = "Exercise complete 🧘";
+  timerText.textContent = "Take a moment to relax";
+  circle.style.transform = "scale(1)";
+  startBtn.disabled = false;
+}
+
+startBtn.addEventListener("click", startExercise);
+</script>
+
+</body>
+</html>

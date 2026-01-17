@@ -1,0 +1,222 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "name": "Box Breathing",
+      "type": "breathing",
+      "duration": "2 minutes",
+      "difficulty": "Beginner",
+      "description": "A simple breathing technique to reduce stress and anxiety by creating a rhythm.",
+      "steps": [
+        "Find a comfortable seated position",
+        "Inhale slowly through your nose for 4 seconds",
+        "Hold your breath for 4 seconds",
+        "Exhale slowly through your mouth for 4 seconds",
+        "Hold for 4 seconds before next inhale",
+        "Repeat for 5 cycles"
+      ],
+      "benefits": [
+        "Reduces anxiety and stress",
+        "Improves focus and concentration",
+        "Lowers heart rate and blood pressure",
+        "Helps with emotional regulation"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "5-4-3-2-1 Grounding",
+      "type": "mindfulness",
+      "duration": "3 minutes",
+      "difficulty": "Beginner",
+      "description": "Engage your senses to return to the present moment and reduce anxiety.",
+      "steps": [
+        "Name 5 things you can SEE around you",
+        "Name 4 things you can TOUCH or FEEL",
+        "Name 3 things you can HEAR right now",
+        "Name 2 things you can SMELL",
+        "Name 1 thing you can TASTE"
+      ],
+      "benefits": [
+        "Reduces panic and anxiety",
+        "Prevents dissociation",
+        "Calms the nervous system",
+        "Increases present-moment awareness"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Progressive Muscle Relaxation",
+      "type": "relaxation",
+      "duration": "5 minutes",
+      "difficulty": "Intermediate",
+      "description": "Systematically tense and release muscle groups to reduce physical tension.",
+      "steps": [
+        "Start with your feet - tense for 5 seconds, release for 10",
+        "Move to calves, thighs, and glutes",
+        "Continue with abdomen and chest",
+        "Tense and release hands, arms, shoulders",
+        "Finish with face and scalp muscles",
+        "Breathe deeply throughout"
+      ],
+      "benefits": [
+        "Releases physical tension",
+        "Improves sleep quality",
+        "Reduces headaches and pain",
+        "Teaches body awareness"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Pomodoro Study Method",
+      "type": "academic",
+      "duration": "25 minutes",
+      "difficulty": "Beginner",
+      "description": "Focused study sessions with scheduled breaks to maintain concentration.",
+      "steps": [
+        "Set a timer for 25 minutes",
+        "Study with full focus, no distractions",
+        "When timer rings, take a 5-minute break",
+        "Repeat for 4 cycles",
+        "Take a longer 15-30 minute break",
+        "Track your completed cycles"
+      ],
+      "benefits": [
+        "Prevents burnout and fatigue",
+        "Maintains high concentration",
+        "Builds study discipline",
+        "Improves time management"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Mindful Walking",
+      "type": "movement",
+      "duration": "7 minutes",
+      "difficulty": "Beginner",
+      "description": "Walk slowly while paying full attention to movement and sensations.",
+      "steps": [
+        "Stand still and notice your breath",
+        "Begin walking slowly, feeling feet lift and fall",
+        "Notice sensations in legs and feet",
+        "If mind wanders, gently return to walking",
+        "Maintain slow, deliberate pace",
+        "Finish by standing still and noticing changes"
+      ],
+      "benefits": [
+        "Clears the mind",
+        "Reduces anxiety and rumination",
+        "Improves circulation",
+        "Connects mind and body"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Gratitude Journaling",
+      "type": "journaling",
+      "duration": "5 minutes",
+      "difficulty": "Beginner",
+      "description": "Write down specific things you're grateful for to shift perspective.",
+      "steps": [
+        "Find a quiet space with minimal distractions",
+        "Write today's date at the top",
+        "List 3 specific things you're grateful for",
+        "Describe why you're grateful for each",
+        "Notice how your mood shifts",
+        "Make this a daily practice"
+      ],
+      "benefits": [
+        "Improves mood and happiness",
+        "Increases resilience",
+        "Reduces stress and anxiety",
+        "Shifts perspective positively"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Sleep Wind-Down Routine",
+      "type": "sleep",
+      "duration": "20 minutes",
+      "difficulty": "Beginner",
+      "description": "Prepare mind and body for restful sleep with a consistent routine.",
+      "steps": [
+        "Dim lights 1 hour before bed",
+        "Write down worries or to-dos for tomorrow",
+        "Practice 4-7-8 breathing",
+        "Progressive relaxation from head to toes",
+        "Read a physical book (no screens)",
+        "Maintain consistent sleep schedule"
+      ],
+      "benefits": [
+        "Improves sleep quality",
+        "Reduces insomnia",
+        "Enhances memory consolidation",
+        "Regulates circadian rhythm"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Self-Compassion Break",
+      "type": "emotional",
+      "duration": "4 minutes",
+      "difficulty": "Intermediate",
+      "description": "Practice kindness toward yourself in difficult moments.",
+      "steps": [
+        "Acknowledge: 'This is a moment of suffering'",
+        "Recognize: 'Suffering is part of being human'",
+        "Place hands over heart and say kind words",
+        "Offer yourself what you need",
+        "Breathe into the compassion"
+      ],
+      "benefits": [
+        "Reduces self-criticism",
+        "Increases emotional resilience",
+        "Improves self-esteem",
+        "Promotes emotional healing"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Focus Flow Technique",
+      "type": "academic",
+      "duration": "10 minutes",
+      "difficulty": "Intermediate",
+      "description": "Enter a state of deep focus by eliminating distractions.",
+      "steps": [
+        "Clear your workspace completely",
+        "Turn off all notifications",
+        "Set a clear, specific goal",
+        "Work in 25-minute focused bursts",
+        "Take strategic breaks",
+        "Review progress after each session"
+      ],
+      "benefits": [
+        "Increases productivity",
+        "Reduces procrastination",
+        "Improves work quality",
+        "Builds focus stamina"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Body Scan Meditation",
+      "type": "mindfulness",
+      "duration": "15 minutes",
+      "difficulty": "Intermediate",
+      "description": "Systematically scan through the body with awareness.",
+      "steps": [
+        "Lie down or sit comfortably",
+        "Bring attention to your toes",
+        "Slowly move attention up through the body",
+        "Notice sensations without judgment",
+        "Breathe into any areas of tension",
+        "Finish with full body awareness"
+      ],
+      "benefits": [
+        "Reduces stress and anxiety",
+        "Increases body awareness",
+        "Improves sleep",
+        "Teaches mindfulness skills"
+      ]
+    }
+  ]
+}

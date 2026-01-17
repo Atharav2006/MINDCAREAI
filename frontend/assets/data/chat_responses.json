@@ -1,0 +1,64 @@
+{
+  "responses": [
+    {
+      "id": 1,
+      "emotion_id": 1,
+      "text": "I'm glad to hear you're feeling calm. This is a great time to practice some mindfulness or plan for future stressful times. What's helping you maintain this peaceful state?",
+      "suggestions": ["Practice gratitude", "Set goals", "Help others"]
+    },
+    {
+      "id": 2,
+      "emotion_id": 2,
+      "text": "Academic stress can feel overwhelming. Remember to breathe - let's try a quick exercise. Inhale for 4 seconds, hold for 4, exhale for 4. What specifically feels stressful right now?",
+      "suggestions": ["Breathing exercise", "Break tasks down", "Talk about it"]
+    },
+    {
+      "id": 3,
+      "emotion_id": 3,
+      "text": "Anxiety can make everything feel bigger. Let's ground ourselves. Name 5 things you can see around you. Anxiety often lives in the future - let's focus on right now.",
+      "suggestions": ["5-4-3-2-1 Method", "Box Breathing", "Progressive Relaxation"]
+    },
+    {
+      "id": 4,
+      "emotion_id": 4,
+      "text": "Loneliness is really tough, especially when you're surrounded by people. Many students feel this way during stressful periods. Would you like me to suggest some low-pressure social activities?",
+      "suggestions": ["Virtual study group", "Join a club", "Reach out to a friend"]
+    },
+    {
+      "id": 5,
+      "emotion_id": 5,
+      "text": "When everything feels overwhelming, it's important to prioritize. Let's list everything on your plate and identify what's truly urgent. What's one small thing you could let go of?",
+      "suggestions": ["Priority matrix", "Time blocking", "Delegate tasks"]
+    },
+    {
+      "id": 6,
+      "emotion_id": 6,
+      "text": "Burnout needs immediate attention. Your wellbeing comes first. When was the last time you took a proper break? Let's schedule some mandatory rest time.",
+      "suggestions": ["Digital detox", "Sleep schedule", "Gentle movement"]
+    },
+    {
+      "id": 7,
+      "emotion_id": 7,
+      "text": "It's okay to feel down sometimes. Your feelings are valid and important. Would you like to talk about what's on your mind, or would you prefer a gentle activity to lift your mood?",
+      "suggestions": ["Mood journal", "Gentle walk", "Comfort activity"]
+    },
+    {
+      "id": 8,
+      "emotion_id": 8,
+      "text": "Frustration often means you care deeply about something. Let's look at this from a different angle. What would make this situation 10% easier right now?",
+      "suggestions": ["Take a step back", "Try different approach", "Ask for help"]
+    },
+    {
+      "id": 9,
+      "emotion_id": 9,
+      "text": "Hope is powerful! Celebrating progress helps sustain momentum. What's one small win you can acknowledge today, no matter how small?",
+      "suggestions": ["Progress tracker", "Reward system", "Share achievement"]
+    },
+    {
+      "id": 10,
+      "emotion_id": 10,
+      "text": "Exam pressure is real and valid. Let's break this down: what's the most immediate concern? Sometimes just talking through the material can make it feel more manageable.",
+      "suggestions": ["Pomodoro technique", "Study schedule", "Office hours"]
+    }
+  ]
+}
