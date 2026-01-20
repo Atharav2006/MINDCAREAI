@@ -1,17 +1,14 @@
-# MINDCARE-AI (MVP)
+# MindCare-AI Frontend
 
-Privacy-first, non-clinical mental health support chatbot for students.
+## Overview
+This frontend connects to your backend at `http://127.0.0.1:8080/api/message`. It supports optional Firebase Auth/Firestore (configure `js/app.js`) and stores local history in `localStorage`.
 
-## What this repo contains
-- Frontend: React chat UI + two guided activities
-- Backend: Node.js Express API with rule-based risk detection, Google NL fallback, and anonymous telemetry to Firebase
-- Infra: minimal Firebase rules example
+## Files added
+- `index.html`, `chat.html`, `dashboard.html`, `activities.html`
+- `assets/css/chat.css` (shared styles)
+- `js/app.js`, `js/api.js`, `js/chat.js`, `js/dashboard.js`, `js/activities.js`, `js/emotion-engine.js`
 
-## Quick start (local)
-1. Copy `.env.example` to `.env` and fill values.
-2. Place Google and Firebase service account JSON files in `backend/`.
-3. Start backend:
+## Setup & Run
+1. Ensure backend is running:
    ```bash
-   cd backend
-   npm install
-   npm run dev
+   npx nodemon index.js

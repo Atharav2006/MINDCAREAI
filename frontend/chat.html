@@ -1,20 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MindCare Chat</title>
-  <link rel="stylesheet" href="assets/css/chat.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat with MindCare-AI | Mental Wellness Assistant</title>
+
+  <!-- Main stylesheet (imports component CSS files) -->
+  <link rel="stylesheet" href="assets/css/chat.css" />
+
+  <!-- Icons and fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div id="chat-container">
-    <div id="messages"></div>
-    <div id="input-container">
-      <input id="user-input" type="text" placeholder="Type your message..." />
-      <button id="send-btn">Send</button>
-    </div>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Conversation sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon" aria-hidden="true">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h2>MindCare<span class="logo-accent">AI</span></h2>
+        </div>
+        <p class="tagline">Your mental wellness companion</p>
+      </div>
+
+      <nav class="conversation-history" aria-label="Recent conversations">
+        <h3><i class="fas fa-history"></i> Recent Conversations</h3>
+        <div class="history-list">
+          <div class="history-item active" role="button" tabindex="0">
+            <i class="fas fa-comment"></i>
+            <span>Today's Session</span>
+          </div>
+          <div class="history-item" role="button" tabindex="0">
+            <i class="fas fa-comment"></i>
+            <span>Mindfulness Tips</span>
+          </div>
+          <div class="history-item" role="button" tabindex="0">
+            <i class="fas fa-comment"></i>
+            <span>Sleep Quality</span>
+          </div>
+          <div class="history-item" role="button" tabindex="0">
+            <i class="fas fa-comment"></i>
+            <span>Stress Management</span>
+          </div>
+        </div>
+      </nav>
+
+      <div class="quick-actions" aria-label="Quick actions">
+        <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+        <button class="action-btn" type="button">
+          <i class="fas fa-heart"></i> Mood Check-in
+        </button>
+        <button class="action-btn" type="button">
+          <i class="fas fa-moon"></i> Sleep Tips
+        </button>
+        <button class="action-btn" type="button">
+          <i class="fas fa-wind"></i> Breathing Exercise
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="index.html" class="home-link">
+          <i class="fas fa-home"></i> Back to Home
+        </a>
+        <div class="user-info">
+          <div class="avatar" aria-hidden="true">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="user-details">
+            <span class="user-name">Welcome</span>
+            <span class="user-status">Ready to chat</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Chat Area -->
+    <main class="main-content" role="main">
+      <!-- Chat Header -->
+      <header class="chat-header">
+        <div class="header-left">
+          <div class="ai-status" aria-live="polite">
+            <span class="status-indicator active" aria-hidden="true"></span>
+            <span class="status-text">MindCare-AI is Online</span>
+          </div>
+          <h1>Mental Wellness Chat</h1>
+        </div>
+
+        <div class="header-actions" role="toolbar" aria-label="Chat actions">
+          <button class="icon-btn" title="Clear Chat" type="button">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+          <button class="icon-btn" title="Settings" type="button">
+            <i class="fas fa-cog"></i>
+          </button>
+          <button class="icon-btn" title="Help" type="button">
+            <i class="fas fa-question-circle"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Chat Window -->
+      <div class="chat-container">
+        <div id="chatWindow" class="chat-window" aria-live="polite">
+          <!-- Welcome message will be inserted by JS -->
+          <div class="welcome-message">
+            <div class="welcome-icon" aria-hidden="true">
+              <i class="fas fa-comment-medical"></i>
+            </div>
+            <h3>Welcome to MindCare-AI</h3>
+            <p>I'm here to support your mental wellness journey. How are you feeling today?</p>
+            <div class="welcome-suggestions">
+              <button class="suggestion-btn" type="button">I'm feeling anxious</button>
+              <button class="suggestion-btn" type="button">Need stress relief tips</button>
+              <button class="suggestion-btn" type="button">Help with sleep</button>
+              <button class="suggestion-btn" type="button">Just need to talk</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container" aria-label="Message input">
+          <div class="input-actions">
+            <button class="input-action-btn" title="Attach File" type="button">
+              <i class="fas fa-paperclip"></i>
+            </button>
+            <button class="input-action-btn" title="Record Audio" type="button">
+              <i class="fas fa-microphone"></i>
+            </button>
+            <button class="input-action-btn" title="Mood Check" type="button">
+              <i class="fas fa-smile"></i>
+            </button>
+          </div>
+
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="chatInput"
+              placeholder="Share your thoughts or feelings..."
+              autocomplete="off"
+              aria-label="Type your message"
+            />
+            <div class="input-hint" aria-hidden="true">
+              <i class="fas fa-lightbulb"></i>
+              <span>MindCare-AI is confidential and supportive</span>
+            </div>
+          </div>
+
+          <button id="sendBtn" class="send-button" type="button">
+            <i class="fas fa-paper-plane"></i>
+            <span>Send</span>
+          </button>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator" id="typingIndicator" aria-hidden="true">
+          <div class="typing-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+          <span>MindCare-AI is thinking...</span>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <!-- Load chat.js as a module -->
-  <script type="module" src="js/chat.js"></script>
+  <!-- Keep your existing JS logic unchanged -->
+  <script type="module" src="assets/js/chat.js"></script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Visualization Exercise</title>
+  <link rel="stylesheet" href="assets/css/activities.css" />
+</head>
+<body>
+  <header>
+    <h1>Visualization Exercise</h1>
+    <a href="activities.html">Back</a>
+  </header>
+
+  <main>
+    <p>Imagine a safe, peaceful place to reduce stress.</p>
+    <button id="startVisualization">Start Visualization</button>
+    <div id="visualGuide"></div>
+  </main>
+
+  <script>
+    const guide = [
+      "Close your eyes and picture a calm beach.",
+      "Hear the waves gently crashing.",
+      "Feel the warm sun on your skin.",
+      "Smell the salty air.",
+      "Stay in this peaceful place for a moment."
+    ];
+    const visualGuide = document.getElementById("visualGuide");
+    const startBtn = document.getElementById("startVisualization");
+
+    startBtn.onclick = () => {
+      let i = 0;
+      visualGuide.textContent = guide[i];
+      const interval = setInterval(() => {
+        i++;
+        if (i < guide.length) {
+          visualGuide.textContent = guide[i];
+        } else {
+          clearInterval(interval);
+          visualGuide.textContent = "Visualization complete. Carry this calm with you.";
+        }
+      }, 5000);
+    };
+  </script>
+</body>
+</html>

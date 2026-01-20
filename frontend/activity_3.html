@@ -1,160 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Exam Stress Relief</title>
-<style>
-  body {
-    margin: 0;
-    font-family: "Segoe UI", sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #2b2b45);
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  .card {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 18px;
-    padding: 26px;
-    width: 380px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  }
-
-  .title {
-    text-align: center;
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-  }
-
-  .meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    opacity: 0.85;
-    margin-bottom: 16px;
-  }
-
-  .description {
-    text-align: center;
-    font-size: 0.95rem;
-    margin-bottom: 18px;
-  }
-
-  .steps {
-    list-style: none;
-    padding: 0;
-  }
-
-  .steps li {
-    background: rgba(255,255,255,0.1);
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    opacity: 0.4;
-    transition: all 0.3s ease;
-  }
-
-  .steps li.active {
-    opacity: 1;
-    background: rgba(76, 175, 239, 0.25);
-  }
-
-  .steps li.done {
-    opacity: 0.7;
-    background: rgba(100, 255, 180, 0.25);
-  }
-
-  .btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 12px;
-    background: #4cafef;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 14px;
-  }
-
-  .btn:hover {
-    background: #3a9edc;
-  }
-
-  .status {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    opacity: 0.85;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <title>Gratitude Reflection</title>
+  <link rel="stylesheet" href="assets/css/activities.css" />
 </head>
 <body>
+  <header>
+    <h1>Gratitude Reflection</h1>
+    <a href="activities.html">Back</a>
+  </header>
 
-<div class="card">
-  <div class="title">Exam Stress Relief</div>
+  <main>
+    <p>List three things you are grateful for today:</p>
+    <input id="g1" placeholder="First thing..." /><br/>
+    <input id="g2" placeholder="Second thing..." /><br/>
+    <input id="g3" placeholder="Third thing..." /><br/>
+    <button id="saveGratitude">Save Reflection</button>
+    <p id="status"></p>
+  </main>
 
-  <div class="meta">
-    <span>📚 Academic</span>
-    <span>⏱ 7 min</span>
-    <span>⚡ Intermediate</span>
-  </div>
+  <script type="module">
+    import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
-  <p class="description">
-    Techniques to manage exam anxiety and improve focus during study sessions.
-  </p>
+    const db = getFirestore();
+    const saveBtn = document.getElementById("saveGratitude");
+    const status = document.getElementById("status");
 
-  <ul class="steps" id="steps">
-    <li>Take 3 deep breaths before starting</li>
-    <li>Break study sessions into 25-minute blocks</li>
-    <li>Use positive self-talk</li>
-    <li>Practice grounding techniques</li>
-    <li>Visualize successful completion</li>
-    <li>Take regular breaks</li>
-  </ul>
-
-  <button class="btn" id="actionBtn">Start Activity</button>
-  <div class="status" id="statusText"></div>
-</div>
-
-<script>
-  const steps = document.querySelectorAll("#steps li");
-  const btn = document.getElementById("actionBtn");
-  const statusText = document.getElementById("statusText");
-
-  let currentStep = -1;
-  let started = false;
-
-  btn.addEventListener("click", () => {
-    if (!started) {
-      started = true;
-      btn.textContent = "Next Step";
-      statusText.textContent = "Follow each step calmly 🌿";
-      nextStep();
-    } else {
-      nextStep();
-    }
-  });
-
-  function nextStep() {
-    if (currentStep >= 0) {
-      steps[currentStep].classList.remove("active");
-      steps[currentStep].classList.add("done");
-    }
-
-    currentStep++;
-
-    if (currentStep < steps.length) {
-      steps[currentStep].classList.add("active");
-    } else {
-      btn.disabled = true;
-      btn.textContent = "Completed";
-      statusText.textContent = "Well done. Stay calm and confident 💙";
-    }
-  }
-</script>
-
+    saveBtn.onclick = async () => {
+      const user = getAuth().currentUser;
+      if (!user) {
+        status.textContent = "Please login first!";
+        return;
+      }
+      const items = [document.getElementById("g1").value, document.getElementById("g2").value, document.getElementById("g3").value];
+      await addDoc(collection(db, "gratitude"), {
+        userId: user.uid,
+        items,
+        ts: new Date().toISOString()
+      });
+      status.textContent = "Gratitude reflection saved!";
+    };
+  </script>
 </body>
 </html>

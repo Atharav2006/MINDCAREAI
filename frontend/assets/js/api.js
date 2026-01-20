@@ -1,22 +1,27 @@
-export class MindCareAPI {
-  async analyzeSentiment(text) {
-    try {
-      const response = await fetch("http://127.0.0.1:8080/api/message", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, sessionId: "frontend" })
-      });
+// assets/js/api.js
+const BASE_URL = "http://127.0.0.1:8080"; // update if backend runs on different port
 
-      if (!response.ok) {
-        throw new Error(`Backend error: ${response.status}`);
-      }
+export async function callBackend(message, sessionId) {
+  try {
+    const res = await fetch(`${BASE_URL}/api/message`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: message, sessionId })
+    });
 
-      return await response.json();
-    } catch (err) {
-      console.error("Error calling backend:", err);
-      return { emotion: "neutral", risk: [], message: "Backend error", suggestion: null };
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      console.error("Backend error", res.status, text);
+      return { reply: "Backend error. Try again later.", emotion: "neutral" };
     }
+
+    const data = await res.json();
+    return {
+      reply: data.message || "No response",
+      emotion: data.emotion || "neutral"
+    };
+  } catch (err) {
+    console.error("callBackend error", err);
+    return { reply: "Network error. Please check your connection.", emotion: "neutral" };
   }
 }
-
-export const api = new MindCareAPI();
